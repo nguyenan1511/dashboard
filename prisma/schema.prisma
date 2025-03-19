@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model Account {
+  id                String @id @default(auto()) @map("_id") @db.ObjectId
+  email             String
+  /// Field referred in an index, but found no data to define the type.
+  provider          Json?
+  /// Field referred in an index, but found no data to define the type.
+  providerAccountId Json?
+
+  @@unique([provider, providerAccountId])
+}
+
+
+model ChatGroup {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+}
+
+model ChatMessage {
+  id        String @id @default(auto()) @map("_id") @db.ObjectId
+  content   String
+  createdAt String
+  groupId   String
+  updatedAt String
+  userId    String
+}
+
+model Session {
+  id           String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  sessionToken Json?  @unique
+}
+
+model User {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  createdAt DateTime @db.Date
+  email     String   @unique
+  name      String
+  password  String
+  updatedAt DateTime @db.Date
+}
+
+model UserChatGroup {
+  id      String @id @default(auto()) @map("_id") @db.ObjectId
+  groupId String
+  userId  String
+
+  @@unique([userId, groupId])
+}
+
+model VerificationToken {
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  /// Field referred in an index, but found no data to define the type.
+  identifier Json?
+  /// Field referred in an index, but found no data to define the type.
+  token      Json?
+
+  @@unique([identifier, token])
+}
