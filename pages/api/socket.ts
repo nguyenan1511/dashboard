@@ -9,7 +9,7 @@ export const config = {
     },
 };
 
-const ioHandler = (req: NextApiRequest, res: NextApiResponseWithSocket) => {
+const ioHandler = (_: NextApiRequest, res: NextApiResponseWithSocket) => {
     if (!res.socket.server.io) {
         const path = '/api/socket';
         const httpServer: NetServer = res.socket.server as any;
@@ -35,4 +35,4 @@ const ioHandler = (req: NextApiRequest, res: NextApiResponseWithSocket) => {
     res.end();
 };
 
-export default ioHandler; 
+export default ioHandler;

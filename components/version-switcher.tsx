@@ -1,6 +1,6 @@
 'use client';
 
-import { ChevronsUpDown, GalleryVerticalEnd } from 'lucide-react';
+import { GalleryVerticalEnd } from 'lucide-react';
 
 import { DropdownMenu, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';

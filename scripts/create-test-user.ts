@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 async function main() {
     const hashedPassword = await bcrypt.hash('test123', 10);
-    
+
     const user = await prisma.user.upsert({
         where: {
             email: 'test@example.com',
@@ -17,6 +17,8 @@ async function main() {
             email: 'test@example.com',
             name: 'Test User',
             password: hashedPassword,
+            createdAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
         },
     });
 
@@ -30,4 +32,4 @@ main()
     })
     .finally(async () => {
         await prisma.$disconnect();
-    }); 
+    });

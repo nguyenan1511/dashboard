@@ -6,8 +6,7 @@
         "dev": "next dev --turbopack",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
-        "create-test-user": "tsx scripts/create-test-user.ts"
+        "lint": "next lint"
     },
     "dependencies": {
         "@auth/prisma-adapter": "^2.8.0",
@@ -51,6 +50,7 @@
         "@types/react-dom": "^19",
         "eslint": "^9",
         "eslint-config-next": "15.2.3",
+        "eslint-config-prettier": "^10.1.1",
         "prisma": "^6.5.0",
         "socket.io": "^4.8.1",
         "tailwindcss": "^4",

@@ -32,7 +32,7 @@ export async function POST(request: Request) {
         });
         console.log('🚀user---->', user);
         // Don't send the password back
-        const { password: _, ...userWithoutPassword } = user;
+        const { ...userWithoutPassword } = user;
 
         return NextResponse.json(userWithoutPassword, { status: 201 });
     } catch (error) {

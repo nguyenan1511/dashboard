@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 
 export async function GET(request: Request) {
     try {
+        console.log('🚀request---->', request);
         const chatGroups = await prisma.chatMessage.findMany({
             where: {
                 groupId: '67da872745580f7fd695b2d0',

@@ -1,4 +1,3 @@
-import { LoginForm } from '@/views/login/login-form';
 import { RegisterForm } from '@/views/register/register-form';
 
 export default function Page() {
